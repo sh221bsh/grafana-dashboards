@@ -112,6 +112,10 @@ const actions = {
     ...state,
     fingerprint: value,
   }),
+  setSearch: ({ search }) => (state) => ({
+    ...state,
+    search
+  })
 };
 
 export const UrlParametersProvider = ({ timeRange, children }) => {

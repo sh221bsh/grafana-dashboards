@@ -105,7 +105,6 @@ export const getStyles = stylesFactory((theme: GrafanaTheme) => {
       height: ${height - 70}px;
       justify-content: center;
       align-items: center;
-      border: 1px solid ${borderColor};
     `,
     checkboxColumn: css`
       width: 20px;
@@ -121,7 +120,7 @@ export const getStyles = stylesFactory((theme: GrafanaTheme) => {
       align-items: center;
 
       .header-wrapper {
-        width: 80%;
+        width: 100%;
       }
     `,
     tableWrapper: css`
