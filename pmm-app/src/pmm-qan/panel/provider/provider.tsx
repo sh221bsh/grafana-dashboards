@@ -112,9 +112,9 @@ const actions = {
     ...state,
     fingerprint: value,
   }),
-  setSearch: ({ search }) => (state) => ({
+  setDimensionSearchText: ({ search }) => (state) => ({
     ...state,
-    search
+    dimensionSearchText: search
   })
 };
 
