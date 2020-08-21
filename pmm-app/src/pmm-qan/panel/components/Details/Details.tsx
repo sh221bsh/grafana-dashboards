@@ -2,7 +2,6 @@ import React, {
   FC, useContext, useEffect, useState
 } from 'react';
 import { Divider, Tabs, Button } from 'antd';
-import './Details.scss';
 import { QueryAnalyticsProvider } from 'pmm-qan/panel/provider/provider';
 import Explain from './Explain/Explain';
 import Example from './Example/Example';
@@ -10,14 +9,18 @@ import Metrics from './Metrics/Metrics';
 import TableCreateContainer from './Table/TableContainer';
 import { useDetails } from './Details.hooks';
 import { TabKeys } from './Details.constants';
-import { styles } from './Details.styles';
 import { useMetricsDetails } from './Metrics/Metrics.hooks';
 import { Messages } from './Details.messages';
 import { Databases } from './Details.types';
+import {useTheme} from "@grafana/ui";
+import {getStyles} from "./Details.styles";
+import {cx} from "emotion";
 
 const { TabPane } = Tabs;
 
 export const DetailsSection: FC = () => {
+  const theme = useTheme();
+  const styles = getStyles(theme);
   const {
     contextActions: { closeDetails, setActiveTab, setLoadingDetails },
     panelState: {
@@ -58,7 +61,7 @@ export const DetailsSection: FC = () => {
   useEffect(() => setLoadingDetails(loading || metricsLoading), [loading, metricsLoading]);
 
   return (
-    <div className="query-analytics-details-grid query-analytics-details" data-qa="query-analytics-details">
+    <div className={cx(styles.detailsGrid,'query-analytics-details')} data-qa="query-analytics-details">
       <div className="details-tabs">
         <Divider className={styles.zeroMargin} />
         <Tabs
