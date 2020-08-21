@@ -157,6 +157,7 @@ export const Table: FC<TableProps> = ({
                   return (
                     <div {...column.getHeaderProps()} className={cx('th', { [styles.rowNumberCell]: index === 0 })}>
                       <div className={styles.headerContent}>
+                        {console.log('tester')}
                         <div className="header-wrapper">{column.render('Header')}</div>
                         {column.sortable ? (
                           <a className={styles.sortBy} {...column.getSortByToggleProps()} data-qa="sort-by-control">
@@ -189,7 +190,7 @@ export const Table: FC<TableProps> = ({
             }}
           >
             {row.cells.map((cell) => (
-              <div {...cell.getCellProps()} className={cx('td', styles.tableCell)}>
+              <div {...cell.getCellProps()} className={cx('td', styles.tableCell, 'sobaka')}>
                 {cell.render('Cell')}
               </div>
             ))}
