@@ -1,6 +1,4 @@
-import React, {
-  FC, useContext, useEffect, useMemo, useRef, useState
-} from 'react';
+import React, { FC, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Input, Spin } from 'antd';
 import { Form } from 'react-final-form';
 import ScrollArea from 'react-scrollbar';
@@ -14,9 +12,7 @@ import { useFilters, useFiltersContainerHeight, useInitialFilterValues } from '.
 import { getSelectedCheckboxes } from './Filters.tools';
 import { FiltersContainerProps } from './Filters.types';
 
-const FiltersContainer: FC<FiltersContainerProps> = ({
-  contextActions, form, filters, disabled
-}) => {
+const FiltersContainer: FC<FiltersContainerProps> = ({ contextActions, form, filters, disabled }) => {
   const filtersWrapperRef = useRef<HTMLDivElement>(null);
 
   const height = useFiltersContainerHeight(FILTERS_BODY_HEIGHT, filtersWrapperRef);
@@ -60,7 +56,7 @@ const FiltersContainer: FC<FiltersContainerProps> = ({
       </div>
       <ScrollArea className={styles.getFiltersWrapper(height)}>
         <Input
-          suffix={<Filter />}
+          suffix={<Filter fill="#c6c6c6" />}
           placeholder="Filter by..."
           onChange={(e) => {
             setFilter(e.target.value);
