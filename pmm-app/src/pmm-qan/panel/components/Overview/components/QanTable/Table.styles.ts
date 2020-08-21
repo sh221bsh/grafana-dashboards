@@ -6,12 +6,12 @@ export const getStyles = stylesFactory((theme: GrafanaTheme) => {
   const backgroundColor = selectThemeVariant({ light: 'rgb(247, 247, 249)', dark: '#0b0c0e' }, theme.type);
   const borderColor = selectThemeVariant(
     { light: (theme.colors as any).gray85, dark: '#292929' },
-    theme.type
+    theme.type,
   );
   const headerBackground = selectThemeVariant({ light: 'rgb(247, 247, 249)', dark: '#202226' }, theme.type);
   const textColor = selectThemeVariant(
     { light: (theme.colors as any).gray85, dark: 'rgba(255, 255, 255, 0.8)' },
-    theme.type
+    theme.type,
   );
 
   return {
