@@ -7,13 +7,13 @@ import ScrollArea from 'react-scrollbar';
 import { cx } from 'emotion';
 import { QueryAnalyticsProvider } from 'pmm-qan/panel/provider/provider';
 import { Filter } from 'shared/components/Elements/Icons/Filter';
+import { useTheme } from '@grafana/ui';
 import { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
 import { FILTERS_BODY_HEIGHT, FILTERS_GROUPS } from './Filters.constants';
 import { useFilters, useFiltersContainerHeight, useInitialFilterValues } from './Filters.hooks';
 import { getSelectedCheckboxes } from './Filters.tools';
 import { FiltersContainerProps } from './Filters.types';
-import {useTheme} from "@grafana/ui";
-import {getStyles} from "./Filters.styles";
+import { getStyles } from './Filters.styles';
 
 export const FiltersContainer = ({
   contextActions, form, labels, filters, disabled
