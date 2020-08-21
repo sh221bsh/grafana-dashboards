@@ -6,6 +6,12 @@ import {getThemeParameters} from "../../../../../../shared/components/helpers/se
 export const getStyles = stylesFactory((theme: GrafanaTheme) => {
   const parameters = getThemeParameters(theme);
 
+  const selectedRowColor = selectThemeVariant(
+    // @ts-ignore
+    { light: 'deepskyblue', dark: '#234682' },
+    theme.type,
+  );
+
 
   return {
     /* This will make the table scrollable when it gets too small */
@@ -29,7 +35,7 @@ export const getStyles = stylesFactory((theme: GrafanaTheme) => {
 
         .selected-overview-row {
           .td {
-            background-color: #234682;
+            background-color: ${selectedRowColor};
           }
         }
         .tr {

@@ -190,7 +190,7 @@ export const Table: FC<TableProps> = ({
             }}
           >
             {row.cells.map((cell) => (
-              <div {...cell.getCellProps()} className={cx('td', styles.tableCell, 'sobaka')}>
+              <div {...cell.getCellProps()} className={cx('td', styles.tableCell)}>
                 {cell.render('Cell')}
               </div>
             ))}
