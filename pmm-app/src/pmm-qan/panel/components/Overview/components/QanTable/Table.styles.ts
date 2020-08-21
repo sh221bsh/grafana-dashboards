@@ -72,7 +72,6 @@ export const getStyles = stylesFactory((theme: GrafanaTheme) => {
         position: sticky;
         left: 0;
         z-index: 1;
-        // outline: 1px solid ${borderColor};
       }
 
       .tr .td:nth-child(2) {
@@ -80,14 +79,12 @@ export const getStyles = stylesFactory((theme: GrafanaTheme) => {
         position: sticky;
         left: 40px;
         z-index: 1;
-        // outline: 1px solid ${borderColor};
       }
       .th:first-child {
-        position: -webkit-sticky; /* for Safari */
-        position: sticky;
+        display: flex !important;
+        justify-content: center !important;
         left: 0;
         z-index: 3;
-        // outline: 1px solid ${borderColor};
       }
       .th:nth-child(2) {
         position: -webkit-sticky; /* for Safari */
