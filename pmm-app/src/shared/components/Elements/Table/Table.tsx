@@ -1,5 +1,5 @@
-import React, { ReactNode, FC, useEffect } from 'react';
-import { useRowSelect, useTable, Column } from 'react-table';
+import React, { FC, ReactNode, useEffect } from 'react';
+import { Column, useRowSelect, useTable } from 'react-table';
 import { Spinner, useTheme } from '@grafana/ui';
 import { getStyles } from './Table.styles';
 

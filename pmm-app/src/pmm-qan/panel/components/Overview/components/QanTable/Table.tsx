@@ -1,20 +1,14 @@
 import React, {
-  FC, ReactElement, ReactNode, useEffect, useCallback, useState
+  FC, ReactElement, ReactNode, useCallback, useEffect, useState
 } from 'react';
 import {
-  Column,
-  TableOptions,
-  TableState,
-  useBlockLayout,
-  useRowSelect,
-  useSortBy,
-  useTable,
+  Column, TableOptions, TableState, useBlockLayout, useRowSelect, useSortBy, useTable
 } from 'react-table';
 import { Spinner, useTheme } from '@grafana/ui';
 import { cx } from 'emotion';
 import useWindowSize from 'shared/components/hooks/WindowSize.hooks';
 import { getStyles } from './Table.styles';
-import { getMainColumnWidth, getAllColumnsWidth } from '../DefaultColumns/DefaultColumns';
+import { getAllColumnsWidth, getMainColumnWidth } from '../DefaultColumns/DefaultColumns';
 
 interface TableProps {
   rowSelection?: boolean;

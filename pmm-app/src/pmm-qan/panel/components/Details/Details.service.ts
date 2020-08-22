@@ -1,7 +1,4 @@
-import {
-  apiRequestManagement,
-  apiRequestQAN,
-} from 'shared/components/helpers/api';
+import { apiRequestManagement, apiRequestQAN } from 'shared/components/helpers/api';
 import { getLabelQueryParams } from 'pmm-qan/panel/QueryAnalytics.tools';
 
 

@@ -1,8 +1,8 @@
 import React, {
   FC, useCallback, useEffect, useState
 } from 'react';
-import Highlight from 'react-highlight.js';
 import { Overlay } from 'shared/components/Elements/Overlay/Overlay';
+import { HighlightWrapper } from 'shared/components/Elements/HighlightWrapper/HighlightWrapper';
 import { ActionResult, Databases } from '../../../Details.types';
 import { mysqlMethods, postgresqlMethods } from '../../../database-models';
 import { useActionResult } from '../../../Details.tools';
@@ -41,7 +41,7 @@ export const TableCreate: FC<TableProps> = ({
     <Overlay isPending={showCreateTable.loading}>
       {showCreateTable.error ? <pre>{showCreateTable.error}</pre> : null}
       {!showCreateTable.error ? (
-        <Highlight language="sql">{showCreateTable.value}</Highlight>
+        <HighlightWrapper language="sql">{showCreateTable.value}</HighlightWrapper>
       ) : null}
     </Overlay>
   );
