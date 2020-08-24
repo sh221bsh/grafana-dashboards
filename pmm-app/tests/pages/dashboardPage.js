@@ -522,10 +522,10 @@ module.exports = {
     serviceName:
       '//label[contains(text(), "Service Name")]/following-sibling::value-select-dropdown/descendant::a[@class="variable-value-link"]',
     urlWithRDSFilter:
-      'graph/d/mysql-instance-overview/mysql-instances-overview?orgId=1&'
-      + 'from=now-5m&to=now&refresh=1m&var-interval=$__auto_interval_interval&var-region=All&'
-      + 'var-environment=All&var-cluster=rds56-cluster&var-replication_set=All&var-az=&'
-      + 'var-node_type=All&var-node_model=&var-database=All&var-service_type=All&var-schema=All',
+      'graph/d/mysql-instance-overview/mysql-instances-overview?orgId=1&' +
+      'from=now-5m&to=now&refresh=1m&var-interval=$__auto_interval_interval&var-region=All&' +
+      'var-environment=All&var-cluster=rds56-cluster&var-replication_set=All&var-az=&' +
+      'var-node_type=All&var-node_model=&var-database=All&var-service_type=All&var-schema=All',
   },
 
   fields: {
@@ -541,6 +541,8 @@ module.exports = {
     collapsedDashboardRow: '//div[@class="dashboard-row dashboard-row--collapsed"]/a',
     annotationMarker: '(//div[contains(@class,"events_marker")])',
     clearSelection: '//a[@ng-click="vm.clearSelections()"]',
+    Last12HoursValue: "//span[contains(text(), 'Last 12 hours')]",
+    Last2Days: "//span[contains(text(), 'Last 2 days')]"
   },
 
   annotationLocator(annotationNumber) {
@@ -647,17 +649,17 @@ module.exports = {
   },
 
   expandFilters(filterType) {
-    const filterLocator = `//label[contains(text(), '${filterType}')]/following-sibling::value-select-dropdown`;
+    const filterGroupLocator = `//label[contains(text(), '${filterType}')]/parent::div`;
 
-    I.waitForElement(filterLocator, 30);
-    I.click(filterLocator);
+    I.waitForElement(`${filterGroupLocator}//a`, 30);
+    I.click(`${filterGroupLocator}//a`);
 
-    return filterLocator;
+    return filterGroupLocator;
   },
 
   async applyFilter(filterName, filterValue) {
     // eslint-disable-next-line max-len
-    const filterSelector = `(//a[@class='variable-value-link']//ancestor::div//label[contains(text(),'${filterName}')])[1]//parent::div//a[@ng-click]`;
+    const filterSelector = `(//a[@class='variable-value-link']//ancestor::div//label[contains(text(),'${filterName}')])[1]//parent::div//a`;
     const filterValueSelector = `//span[contains(text(), '${filterValue}')]`;
     // eslint-disable-next-line max-len
     const filterNameSelector = `(//a[@class='variable-value-link']//ancestor::div//label[contains(text(),'${filterName}')])[1]`;

@@ -64,7 +64,7 @@ module.exports = {
     showSelectedDisabled: '//button[@data-qa="qan-filters-show-selected" and @disabled ]',
     table: '//table//tr[2]',
     tableRow: 'div.tr',
-    noQueries: "//h1[contains(text(), 'No queries available for this combination of filters')]",
+    noQueries: '//h1[contains(text(), \'No queries available for this combination of filters\')]',
   },
 
   metricValueLocatorOverviewTable(column, row) {
@@ -84,7 +84,7 @@ module.exports = {
     spinBlur: 'div.ant-spin-blur',
     spinner: 'i.fa-spinner',
     tableRowSelector: '.ant-table-scroll .ant-table-tbody tr:first-of-type .overview-main-column div',
-    timeRangePickerButton: '.time-picker-button-select',
+    timeRangePickerButton: '.navbar-button--tight',
   },
   requests: {
     getReportPath: '/v0/qan/GetReport',

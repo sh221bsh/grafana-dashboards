@@ -228,6 +228,7 @@ Scenario(
   async (I, qanPage, qanActions) => {
     const environmentName1 = 'ps-dev';
     const environmentName2 = 'pgsql-dev';
+
     qanActions.waitForNewQANPageLoaded();
     qanActions.applyFilterNewQAN(environmentName1);
     qanActions.applyFilterNewQAN(environmentName2);
@@ -272,17 +273,22 @@ Scenario(
 
 Scenario(
   'PMM-T221 - Verify that all filter options are always visible (but some disabled) after selecting an item and % value is changed @not-pr-pipeline @qan',
-  async (I, qanPage, qanActions, pmmSettingsPage) => {
+  async (I, qanPage, qanActions, pmmSettingsPage, dashboardPage) => {
     const serviceType = 'mysql';
     const environment = 'pgsql-dev';
     const serviceName = 'ps_5.7';
 
     qanActions.waitForNewQANPageLoaded();
-    const countOfFilters = await I.grabNumberOfVisibleElements(qanPage.fields.filterCheckboxes);
+    //change to 2 days for apply ps_5.7 value in filter
+    I.click(qanPage.elements.timeRangePickerButton);
+    I.click(dashboardPage.fields.Last2Days);
     const countBefore = await qanActions.getCountOfItems();
     const percentageBefore = await qanActions.getPercentage('Service Type', serviceType);
+
+    const countOfFilters = await I.grabNumberOfVisibleElements(qanPage.fields.filterCheckboxes);
     qanActions.applyFilterNewQAN(serviceType);
     const countAfter = await qanActions.getCountOfItems();
+
     pmmSettingsPage.customClearField(qanPage.fields.filterBy);
 
     await qanActions.verifyChangedCount(countBefore, countAfter);
@@ -291,6 +297,7 @@ Scenario(
     qanActions.applyFilterNewQAN(serviceName);
     pmmSettingsPage.customClearField(qanPage.fields.filterBy);
     const percentageAfter = await qanActions.getPercentage('Service Type', serviceType);
+
     qanActions.verifyChangedCount(percentageBefore, percentageAfter);
   },
 );
